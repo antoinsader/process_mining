@@ -110,8 +110,12 @@ if __name__=="__main__":
 
 
     #cleaning
-    cleaned_a2 = clean_df(df_org_a2, "lifecycle_transition",  ["Resolved", "Closed", "Cancelled", "In Call"])
-    cleaned_c = clean_df(df_org_c, "lifecycle_transition" , ["Resolved", "Closed", "Cancelled", "In Call"])
+    # cleaned_a2 = clean_df(df_org_a2, "lifecycle_transition",  ["Resolved", "Closed", "Cancelled", "In Call"])
+    # cleaned_c = clean_df(df_org_c, "lifecycle_transition" , ["Resolved", "Closed", "Cancelled", "In Call"])
+
+    cleaned_a2 = clean_df(df_org_a2)
+    cleaned_c = clean_df(df_org_c)
+
 
     #get durations
     dur_stats_a2, dur_fig_a2  = get_resolution_durations(cleaned_a2, "ORG-A2 - Distribution of incident resolving durations")
@@ -140,7 +144,7 @@ if __name__=="__main__":
 
     #visualize:
     visualize_petri(net_a, im_a, fm_a)
-    visualize_petri(net_c, im_c, fm_c)
+    # visualize_petri(net_c, im_c, fm_c)
 
     #calculate core fitness
     fitness_a2_on_c = get_alignments_fitness(lg_a,  net_c, im_c, fm_c)
